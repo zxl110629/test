@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>扬尘在线检测</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+    />
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" type="text/css" href="bootstrap/plugins/jquery-ui/jquery.ui.1.10.2.ie.css"
+      />
+    <![endif]-->
+    <link href="bootstrap/assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="bootstrap/assets/css/responsive.css" rel="stylesheet" type="text/css"
+    />
+    <link href="bootstrap/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="bootstrap/assets/css/fontawesome/font-awesome.min.css">
+    <link href="bootstrap/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="bootstrap/assets/css/animate.min.css" rel="stylesheet">
+
+    <!--[if IE 7]>
+      <link rel="stylesheet" href="bootstrap/assets/css/fontawesome/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if IE 8]>
+      <link href="bootstrap/assets/css/ie8.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+
+	<script type="text/javascript" src="bootstrap/assets/js/jquery.min.js?v=2.1.4">
+	</script>
+    <script type="text/javascript" src="bootstrap/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/assets/js/libs/lodash.compat.min.js">
+    </script>
+    <!--[if lt IE 9]>
+      <script src="assets/js/libs/html5shiv.js">
+      </script>
+    <![endif]-->
+    <script type="text/javascript" src="bootstrap/plugins/touchpunch/jquery.ui.touch-punch.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/event.swipe/jquery.event.move.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/event.swipe/jquery.event.swipe.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/assets/js/libs/breakpoints.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/respond/respond.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/cookie/jquery.cookie.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/slimscroll/jquery.slimscroll.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/slimscroll/jquery.slimscroll.horizontal.min.js">
+    </script>
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="bootstrap/plugins/flot/excanvas.min.js">
+      </script>
+    <![endif]-->
+    <script type="text/javascript" src="bootstrap/plugins/sparkline/jquery.sparkline.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/flot/jquery.flot.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/flot/jquery.flot.tooltip.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/flot/jquery.flot.resize.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/flot/jquery.flot.time.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/flot/jquery.flot.growraf.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/easy-pie-chart/jquery.easy-pie-chart.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/daterangepicker/moment.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/daterangepicker/daterangepicker.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/blockui/jquery.blockUI.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/fullcalendar/fullcalendar.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/noty/jquery.noty.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/noty/layouts/top.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/noty/themes/default.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/uniform/jquery.uniform.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/plugins/select2/select2.min.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/assets/js/app.js">
+    </script>
+	
+    <script type="text/javascript" src="bootstrap/plugins/layer/layer.min.js"></script>
+    <script type="text/javascript" src="bootstrap/assets/js/contabs.min.js"></script>
+    <script type="text/javascript" src="bootstrap/assets/js/plugins.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/assets/js/plugins.form-components.js">
+    </script>
+    <script>
+      $(document).ready(function() {
+        App.init();
+        Plugins.init();
+        FormComponents.init();
+      });
+    </script>
+    <script type="text/javascript" src="bootstrap/assets/js/custom.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/assets/js/demo/pages_calendar.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/assets/js/demo/charts/chart_filled_blue.js">
+    </script>
+    <script type="text/javascript" src="bootstrap/assets/js/demo/charts/chart_simple.js">
+    </script>
+
+  </head>
+  
+  <body  style="overflow:hidden">
+  <!--div style="height:110px;width:100%;background-image: url('bootstrap/assets/img/title.png');"-->
+    <header class="header navbar navbar-fixed-top" style="height: 45px;" role="banner">
+      <div class="container" style="height: 43px;">
+        <a class="navbar-brand" href="javascript:void(0); ">
+          <img src="assets/img/logo.png" alt="logo" />
+          <strong>
+            功能列表
+          </strong>
+        </a>
+        <a href="javascript:void(0)" class="toggle-sidebar bs-tooltip" data-placement="bottom"
+        data-original-title="菜单控制" style="height: 43px;">
+          <i class="icon-reorder">
+          </i>
+        </a>
+        <ul class="nav navbar-nav navbar-right" style="height: 43px;">
+          <li class="dropdown" style="height: 43px;">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-warning-sign">
+              </i>
+              <span class="badge">
+                5
+              </span>
+            </a>
+            <ul class="dropdown-menu extended notification">
+              <li class="title">
+                <p>
+                  你有5条通知信息。
+                </p>
+              </li>
+              <li>
+                <a href="javascript:void(0);">
+                  <span class="label label-success">
+                    <i class="icon-plus">
+                    </i>
+                  </span>
+                  <span class="message">
+                    新用户注册.
+                  </span>
+                  <span class="time">
+                    1分钟之前
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);">
+                  <span class="label label-danger">
+                    <i class="icon-warning-sign">
+                    </i>
+                  </span>
+                  <span class="message">
+                    预警信息
+                  </span>
+                  <span class="time">
+                    5分钟之前
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);">
+                  <span class="label label-warning">
+                    <i class="icon-bolt">
+                    </i>
+                  </span>
+                  <span class="message">
+                    告警信息
+                  </span>
+                  <span class="time">
+                    10分钟之前
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);">
+                  <span class="label label-info">
+                    <i class="icon-bullhorn">
+                    </i>
+                  </span>
+                  <span class="message">
+                    掉电信息
+                  </span>
+                  <span class="time">
+                    25分钟之前
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0);">
+                  <span class="label label-warning">
+                    <i class="icon-bolt">
+                    </i>
+                  </span>
+                  <span class="message">
+                    告警信息
+                  </span>
+                  <span class="time">
+                    55分钟之前
+                  </span>
+                </a>
+              </li>
+              <li class="footer">
+                <a href="javascript:void(0);">
+                  查看所有信息
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown" style="height: 43px;">
+            <a id="xtpz" href="javascript:void(0)" class="project-switcher-btn dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-folder-open">
+              </i>
+              <span>
+                系统配置
+              </span>
+            </a>
+          </li>
+          <li class="dropdown user" style="height: 43px;">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-male">
+              </i>
+              <span class="username">
+                超级管理员
+              </span>
+              <i class="icon-caret-down small">
+              </i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="javascript:void(0)">
+                  <i class="icon-user">
+                  </i>
+                  我的资料
+                </a>
+              </li>
+              <li>
+                <a href="login.html">
+                  <i class="icon-key">
+                  </i>
+                  退出
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="project-switcher" class="container project-switcher">
+          <ul class="project-list ">
+            <li>
+              <a class="J_menuItem" href="jcdw/initListPage"  onClick="close_menu()">
+                <span class="image">
+                  <i class="icon-desktop">
+                  </i>
+                </span>
+                <span class="title">
+                  站点管理
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="J_menuItem" href="xtgl/dxpz/UserList.html" onClick="close_menu()">
+                <span class="image">
+                  <i class="icon-compass">
+                  </i>
+                </span>
+                <span class="title">
+                  短信配置
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="J_menuItem" href="jsp/Authox/UserList.html"   onClick="close_menu()">
+                <span class="image">
+                  <i class="icon-male">
+                  </i>
+                </span>
+                <span class="title">
+                  权限配置
+                </span>
+              </a>
+            </li>
+          </ul>
+      </div>
+    </header>
+    <div id="container">
+      <div id="sidebar" class="sidebar-fixed">
+        <div id="sidebar-content">
+          <ul id="nav">
+			<li id="dzdt" class="current open">
+              <a href="javascript:void(0);">
+                <i class="icon-globe">
+                </i>
+               电子地图
+              </a>
+              <ul class="sub-menu">
+                <li>
+                  <a class="J_menuItem" href="jsp/map/map.html" onClick="gotourl('dzdt')" >
+                    <i class="icon-angle-right">
+                    </i>
+                    站点专题
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li id="ssxx" >
+              <a href="javascript:void(0);">
+                <i class="icon-desktop">
+                </i>
+               实时信息
+              </a>
+              <ul class="sub-menu">
+                <li>
+                  <a class="J_menuItem" href="jsp/ssxx/realdata.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    实时监测数据
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="jsp/ssxx/warndata.jsp"  >
+                    <i class="icon-angle-right">
+                    </i>
+                    实时告警数据
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="jsp/ssxx/powerdown.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    实时掉线数据
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li id="sjcx" >
+              <a href="javascript:void(0);">
+                <i class="icon-edit">
+                </i>
+               历史信息
+              </a>
+              <ul class="sub-menu">
+                <li>
+                  <a class="J_menuItem" href="jsp/sjcx/hisdata.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    统计数据查询
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="jsp/sjcx/hiswarndata.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    告警数据查询
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="jsp/sjcx/hispowerdown.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    掉线数据查询
+                  </a>
+                </li>
+              </ul>
+            </li>
+			<li id="fxjc" >
+              <a href="javascript:void(0);">
+                <i class="icon-bar-chart">
+                </i>
+               分析决策
+              </a>
+              <ul class="sub-menu">
+                <li>
+                  <a class="J_menuItem" href="jsp/DataAnalysis/PM2.5Analysis.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    雾霾分析
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="404.html?id=4"  >
+                    <i class="icon-angle-right">
+                    </i>
+                    噪音分析
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li id="mbbb" >
+              <a href="javascript:void(0);">
+                <i class="icon-table">
+                </i>
+                模板报表
+              </a>
+              <ul class="sub-menu">
+                <li>
+                  <a class="J_menuItem" href="jsp/TemplateReport/DayReport.jsp"  >
+                    <i class="icon-angle-right">
+                    </i>
+                    日报
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="jsp/TemplateReport/MonthReport.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    月报
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="jsp/TemplateReport/YearReport.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    年报
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li id="zhbb" >
+              <a href="javascript:void(0);">
+                <i class="icon-folder-open-alt">
+                </i>
+                综合报表
+              </a>
+              <ul class="sub-menu">
+                <li>
+                  <a class="J_menuItem" href="404.html?id=8" >
+                    <i class="icon-angle-right">
+                    </i>
+                    站点联网率报表
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="404.html?id=9" >
+                    <i class="icon-angle-right">
+                    </i>
+                   数据上报率报表
+                  </a>
+                </li>
+              </ul>
+            </li>
+			
+			 <li id="zdbgl" >
+              <a href="javascript:void(0);">
+                <i class="icon-cogs">
+                </i>
+                字典表管理
+              </a>
+              <ul class="sub-menu">
+                <li>
+                  <a class="J_menuItem" href="jsp/zdbgl/qy_list.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                    区域管理
+                  </a>
+                </li>
+                <li>
+                  <a class="J_menuItem" href="jsp/zdbgl/jgbm_list.jsp"  >
+                    <i class="icon-angle-right">
+                    </i>
+                   监管部门
+                  </a>
+                </li>
+				<li>
+                  <a class="J_menuItem" href="jsp/zdbgl/ywdw_list.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                   运维单位
+                  </a>
+                </li>
+				<li>
+                  <a class="J_menuItem" href="jsp/zdbgl/gcxm_list.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                   工程信息
+                  </a>
+                </li>
+				<li>
+                  <a class="J_menuItem" href="jsp/zdbgl/jcyz_list.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                   监测因子
+                  </a>
+                </li>
+				<li>
+                  <a class="J_menuItem" href="jsp/zdbgl/wrwndbz_list.jsp" >
+                    <i class="icon-angle-right">
+                    </i>
+                   监测标准
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+		<div id="divider" class="resizeable">
+        </div>
+      </div>
+	  <div id="content" style="padding: 0px 15px;position: inherit;margin: 0px 0px 0px 210px;min-height: auto;">
+		<div class="row content-tabs">
+			<button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i></button>
+            <nav class="page-tabs J_menuTabs">
+                <div class="page-tabs-content">
+                    <a href="javascript:;" class="active J_menuTab" data-id="jsp/map/map.html">站点专题</a>
+                </div>
+            </nav>
+            <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i></button>
+            <div class="btn-group roll-nav roll-right">
+				<button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span></button>
+				<ul role="menu" class="dropdown-menu dropdown-menu-right">
+					<li class="J_tabShowActive"><a>定位当前选项卡</a></li>
+					<li class="divider"></li>
+					<li class="J_tabCloseAll"><a>关闭全部选项卡</a></li>
+					<li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
+				</ul>
+			</div>
+         </div>
+	  </div>
+	  <div id="page-wrapper" style="height:100%">
+			  <div class="row J_mainContent" id = "content-main" style="height:100px;">
+					<iframe class="J_iframe" name="iframe0"  src="jsp/map/map.html" width="100%" height="100%"  frameborder="0"  data-id="jsp/map/map.html" seamless></iframe> 
+			  </div>  
+	  </div>
+	</div>
+  </body>
+</html>
+ <script type="text/javascript">
+	var h=($(document.body).outerHeight()-80);
+	h="height:"+h+"px;"
+	$("#content-main").attr("style",h);
+	function close_menu()
+	{
+		 if(document.all)
+		 {
+			document.getElementById("xtpz").click();    
+		 } 
+		 else {
+				   var evt = document.createEvent("MouseEvents");
+				   evt.initEvent("click",true,true);
+				   document.getElementById("xtpz").dispatchEvent(evt);
+		}
+	}
+  </script>

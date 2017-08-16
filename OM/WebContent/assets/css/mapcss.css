@@ -1,0 +1,20 @@
+#code_open {
+    display: none;
+    background: url(../img/result.png) no-repeat -242px 0;
+    width: 90px;
+    height: 14px;
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+}
+
+#code_close {
+    display: none;
+    background: url(../img/result.png) no-repeat -142px 0;
+    width: 90px;
+    height: 14px;
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    top: 50%;
+}
